@@ -181,7 +181,7 @@ function Footer() {
               style={{ padding: "30px 0", color: "#fff" }}
             >
               <Typography variant="body1">
-                Copyright © 2021 Lanuch-Pad A Product of Harvoxx Tech Hub. All
+                Copyright © 2021 Techlauncher.io. A Product of Harvoxx Tech Hub. All
                 rights reserved
               </Typography>
             </Grid>

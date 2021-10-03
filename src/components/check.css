@@ -1,0 +1,33 @@
+.checked {
+  appearance: none;
+  height: 18px;
+  width: 18px;
+  border: 2px solid #ff5b5e;
+  border-radius: 2px;
+  cursor: pointer;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checked::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 800;
+  content: "\f00c";
+  font-size: 12px;
+  color: #fff;
+  display: none;
+}
+
+.checked:hover {
+  background-color: #fff;
+}
+
+.checked:checked {
+  background-color: #ff5b5e;
+}
+
+.checked:checked::after {
+  display: block;
+}

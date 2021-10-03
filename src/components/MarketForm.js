@@ -4,11 +4,7 @@ import {
   Typography,
   Grid,
   Paper,
-  TextField,
   FormControl,
-  Select,
-  MenuItem,
-  InputLabel,
   Button,
   makeStyles,
   useMediaQuery,
@@ -60,7 +56,7 @@ function MarketForm({
   const [error2, setError2] = useState("");
   const [error3, setError3] = useState("");
   const [error4, setError4] = useState("");
-  const [finishBtn, setFinishBtn] = useState("finish");
+  const [finishBtn, setFinishBtn] = useState("FINISH");
   const [disabled, setDisabled] = useState(false);
 
   const next = () => {
@@ -249,16 +245,18 @@ function MarketForm({
               elevation={0}
               square
             >
-              <TextField
-                id="outlined-multiline-static"
-                label="Market Description"
+              <textarea
                 multiline
+                placeholder="Enter Market Description"
                 rows={6}
                 value={marketDesc}
                 onChange={(e) => setMarketDesc(e.target.value)}
-                variant="filled"
-                color="secondary"
-                style={{ width: "100%", marginTop: "30px" }}
+                style={{
+                  width: "100%",
+                  padding: "15px 10px",
+                  border: "1px solid #FF5F59",
+                  resize:"none"
+                }}
               />
               <div
                 style={{
@@ -288,15 +286,17 @@ function MarketForm({
                 style={{
                   display: "flex",
                   flexFlow: "row nowrap",
-                  marginBottom: 20,
+                  // marginBottom: 20,
                 }}
               >
                 <div style={{ width: "45%" }}>
-                  <TextField
-                    style={{ width: "100%" }}
-                    label="Total Available Market"
-                    variant="standard"
-                    color="secondary"
+                  <input
+                    style={{
+                      width: "100%",
+                      padding: "15px 10px",
+                      border: "1px solid #FF5F59",
+                    }}
+                    placeholder="Total Available Market"
                     value={avaMarket}
                     onChange={(e) => setAvaMarket(e.target.value)}
                     type="tel"
@@ -311,17 +311,21 @@ function MarketForm({
                       width: "100%",
                     }}
                   >
-                    <InputLabel color="secondary">Team Size</InputLabel>
-                    <Select
-                      color="secondary"
-                      labelId="demo-simple-select-label"
+                    {/* <InputLabel color="secondary">Team Size</InputLabel> */}
+                    <select
+                    style={{
+                      width: "100%",
+                      padding: "15px 10px",
+                      border: "1px solid #FF5F59",
+                    }}
                       value={teamSize}
                       onChange={(e) => setTeamSize(e.target.value)}
                     >
-                      <MenuItem value="0-5">0-5</MenuItem>
-                      <MenuItem value="6-10">6-10</MenuItem>
-                      <MenuItem value="10 and above">10 and above</MenuItem>
-                    </Select>
+                      <option value="">Select Team Size</option>
+                      <option value="0-5">0-5</option>
+                      <option value="6-10">6-10</option>
+                      <option value="10 and above">10 and above</option>
+                    </select>
                   </FormControl>
                   <Typography variant="body1" style={{ color: "red" }}>
                     {error3}
@@ -405,18 +409,20 @@ function MarketForm({
                   <KeyboardArrowLeftIcon style={{ paddingRight: "7px" }} />
                   Back
                 </Button>
-                <Button
-                  variant="contained"
+                <button
                   style={{
                     float: "right",
                     color: "#fff",
                     backgroundColor: "#FF5F59",
+                    padding:"7px 25px",
+                    border:"none",
+                    borderRadius:"5px"
                   }}
                   onClick={next}
                   disabled={disabled}
                 >
                   {finishBtn}
-                </Button>
+                </button>
               </div>
             </Paper>
           </Grid>

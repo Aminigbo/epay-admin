@@ -43,7 +43,7 @@ function Content() {
             <img
               src={images.rectangle}
               alt=""
-              style={{ height: "auto", width: "100%" }}
+              style={{ height: "auto", width: "95%", marginRight:"5%" }}
             />
           </Grid>
           <Grid
@@ -173,7 +173,7 @@ function Content() {
             <img
               src={images.rectangle2}
               alt=""
-              style={{ height: "auto", width: "100%" }}
+              style={{ height: "auto", width: "95%", marginLeft:"5%" }}
             />
           </Grid>
         </Grid>
@@ -182,7 +182,7 @@ function Content() {
             <img
               src={images.rectangle3}
               alt=""
-              style={{ height: "auto", width: "100%" }}
+              style={{ height: "auto", width: "95%", marginRight:"5%" }}
             />
           </Grid>
           <Grid

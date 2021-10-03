@@ -1,15 +1,13 @@
 import React, { useState } from "react";
 import { Modal } from "react-bootstrap";
-import { Button, TextField, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import images from "../images/image";
-import Failed from "./Failed";
-import Success from "./Success";
+import ProgramSuccess from "./ProgramSuccess";
 
 function ProgramModal({ open, close, program }) {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [finished, setFinished] = useState(false);
-  const [failed, setFailed] = useState(false);
 
   function validateEmail(email) {
     const re =
@@ -28,17 +26,7 @@ function ProgramModal({ open, close, program }) {
         program: program,
         email: email,
       }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.status === true) {
-          setFinished(true);
-          setFailed(false);
-        } else {
-          setFinished(false);
-          setFailed(true);
-        }
-      });
+    });
   };
 
   const submit = () => {
@@ -50,6 +38,7 @@ function ProgramModal({ open, close, program }) {
       setError("");
       close(false);
       sendData();
+      setFinished(true);
     }
   };
 
@@ -76,13 +65,23 @@ function ProgramModal({ open, close, program }) {
           >
             <img src={images.logo2} alt="" width="auto" height="120px" />
           </div>
-          <TextField
+          <Typography
+            variant="body1"
+            component="h1"
+            style={{ marginTop: "10px" }}
+          >
+            Email-Address
+          </Typography>
+          <input
             type="email"
-            color="secondary"
-            style={{ width: "100%", marginTop: "10px" }}
-            label="Enter Your Email Address"
+            style={{
+              width: "100%",
+              marginTop: "5px",
+              padding: "10px 15px",
+              border:"1px solid #FF6256"
+            }}
+            placeholder="Enter Your Email Address"
             value={email}
-            variant="standard"
             onChange={(e) => setEmail(e.target.value)}
           />
           <Typography
@@ -93,22 +92,23 @@ function ProgramModal({ open, close, program }) {
           </Typography>
         </Modal.Body>
         <Modal.Footer>
-          <Button
+          <button
             variant="contained"
             style={{
               backgroundColor: "#FF6256",
               border: "none",
               borderRadius: "5px",
               color: "#fff",
+              padding:"8px 20px"
             }}
             onClick={submit}
           >
-            send
-          </Button>
+            Send
+          </button>
         </Modal.Footer>
       </Modal>
-      <Success open={finished} close={setFinished} />
-      <Failed openFailed={failed} closeFailed={setFailed} />
+      <ProgramSuccess open={finished} close={setFinished} />
+      {/* <Failed openFailed={failed} closeFailed={setFailed} /> */}
     </>
   );
 }

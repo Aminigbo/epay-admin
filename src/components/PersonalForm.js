@@ -4,11 +4,7 @@ import {
   Typography,
   Grid,
   Paper,
-  TextField,
   FormControl,
-  Select,
-  MenuItem,
-  InputLabel,
   Button,
   makeStyles,
   useMediaQuery,
@@ -35,11 +31,29 @@ const useStyles = makeStyles({
   },
 });
 
-function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email, phone, state, gender, type, setFirstName, setLastName, setEmail, setPhone, setState, setGender, setType }) {
+function PersonalForm({
+  prevForm,
+  display,
+  nextForm,
+  firstName,
+  lastName,
+  email,
+  phone,
+  state,
+  gender,
+  type,
+  setFirstName,
+  setLastName,
+  setEmail,
+  setPhone,
+  setState,
+  setGender,
+  setType,
+}) {
   const isActive = useMediaQuery("(max-width:959px)");
 
   //   personal information error state
-  
+
   const [error, setError] = useState("");
   const [error2, setError2] = useState("");
   const [error3, setError3] = useState("");
@@ -145,8 +159,7 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
       setError5("");
       setError6("");
       setError7("");
-      nextForm()
-      
+      nextForm();
     }
   };
 
@@ -236,11 +249,13 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
             >
               <div style={{ display: "flex", flexFlow: "row nowrap" }}>
                 <div style={{ width: "45%" }}>
-                  <TextField
-                    style={{ width: "100%" }}
-                    label="First Name"
-                    variant="standard"
-                    color="secondary"
+                  <input
+                    style={{
+                      width: "100%",
+                      padding: "15px 10px",
+                      border: "1px solid #FF5F59",
+                    }}
+                    placeholder="First Name"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                   />
@@ -249,11 +264,13 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
                   </Typography>
                 </div>
                 <div style={{ width: "45%", marginLeft: "10%" }}>
-                  <TextField
-                    style={{ width: "100%" }}
-                    label="Last Name"
-                    variant="standard"
-                    color="secondary"
+                  <input
+                    placeholder="Last Name"
+                    style={{
+                      width: "100%",
+                      padding: "15px 10px",
+                      border: "1px solid #FF5F59",
+                    }}
                     value={lastName}
                     onChange={(e) => setLastName(e.target.value)}
                   />
@@ -262,9 +279,14 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
                   </Typography>
                 </div>
               </div>
-              <TextField
-                style={{ width: "100%", marginTop: "20px" }}
-                label="Email Address"
+              <input
+                style={{
+                  width: "100%",
+                  padding: "15px 10px",
+                  border: "1px solid #FF5F59",
+                  marginTop: "25px",
+                }}
+                placeholder="Email Address"
                 variant="standard"
                 color="secondary"
                 value={email}
@@ -273,12 +295,15 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
               <Typography variant="body1" style={{ color: "red" }}>
                 {error3}
               </Typography>
-              <TextField
-                style={{ width: "100%", marginTop: "20px" }}
-                label="Phone Number"
-                variant="standard"
+              <input
+                style={{
+                  width: "100%",
+                  marginTop: "20px",
+                  padding: "15px 10px",
+                  border: "1px solid #FF5F59",
+                }}
+                placeholder="Phone Number"
                 type="tel"
-                color="secondary"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
@@ -286,19 +311,25 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
                 {error4}
               </Typography>
               <FormControl style={{ marginTop: "20px", width: "100%" }}>
-                <InputLabel color="secondary">State of Residence</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  color="secondary"
+                {/* <InputLabel color="secondary">State of Residence</InputLabel> */}
+                <select
+                  style={{
+                    width: "100%",
+                    padding: "15px 10px",
+                    border: "1px solid #FF5F59",
+                  }}
                   value={state}
                   onChange={(e) => setState(e.target.value)}
                 >
+                  <option value="" disabled>
+                    Select Country
+                  </option>
                   {NaijaStates.states().map((states) => (
-                    <MenuItem key={states} selected value={states}>
+                    <option key={states} selected value={states}>
                       {states}
-                    </MenuItem>
+                    </option>
                   ))}
-                </Select>
+                </select>
               </FormControl>
               <Typography variant="body1" style={{ color: "red" }}>
                 {error5}
@@ -312,16 +343,22 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
               >
                 <div style={{ width: "45%" }}>
                   <FormControl style={{ width: "100%" }}>
-                    <InputLabel color="secondary">Gender</InputLabel>
-                    <Select
-                      labelId="demo-simple-select-label"
-                      color="secondary"
+                    {/* <InputLabel color="secondary">Gender</InputLabel> */}
+                    <select
                       value={gender}
                       onChange={(e) => setGender(e.target.value)}
+                      style={{
+                        width: "100%",
+                        padding: "15px 10px",
+                        border: "1px solid #FF5F59",
+                      }}
                     >
-                      <MenuItem value="male">Male</MenuItem>
-                      <MenuItem value="female">Female</MenuItem>
-                    </Select>
+                      <option value="" disabled>
+                        Select Gender
+                      </option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
                   </FormControl>
                   <Typography variant="body1" style={{ color: "red" }}>
                     {error6}
@@ -333,20 +370,20 @@ function PersonalForm({ prevForm, display, nextForm, firstName, lastName, email,
                       width: "100%",
                     }}
                   >
-                    <InputLabel color="secondary">I am ...</InputLabel>
-                    <Select
-                      color="secondary"
-                      labelId="demo-simple-select-label"
+                    {/* <InputLabel color="secondary">I am ...</InputLabel> */}
+                    <select
+                      style={{ width: "100%",padding:"15px 10px", border:"1px solid #FF5F59" }}
                       value={type}
                       onChange={(e) => setType(e.target.value)}
                     >
-                      <MenuItem selected value="Founder">
+                      <option value="" disabled>I am ...</option>
+                      <option selected value="Founder">
                         Founder
-                      </MenuItem>
-                      <MenuItem selected value="Co-founder">
+                      </option>
+                      <option selected value="Co-founder">
                         Co-founder
-                      </MenuItem>
-                    </Select>
+                      </option>
+                    </select>
                   </FormControl>
                   <Typography variant="body1" style={{ color: "red" }}>
                     {error7}

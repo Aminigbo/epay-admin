@@ -4,12 +4,7 @@ import {
   makeStyles,
   Typography,
   useMediaQuery,
-  TextField,
   FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Button,
   Container,
   Accordion,
   AccordionDetails,
@@ -29,6 +24,9 @@ const useStyles = makeStyles({
     height: "auto",
     backgroundColor: "#FF5B5E",
   },
+  heading: {
+    color:"#FF5B5E"
+  }
 });
 
 function Investor() {
@@ -264,11 +262,9 @@ function Investor() {
           </Grid>
           <Grid item container spacing={5}>
             <Grid item xs={12} sm={12} md={6}>
-              <TextField
-                style={{ width: "100%" }}
-                label="First Name"
-                variant="standard"
-                color="secondary"
+              <input
+                style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF5F59" }}
+                placeholder="First Name"
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
@@ -278,11 +274,9 @@ function Investor() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-              <TextField
-                style={{ width: "100%" }}
-                label="Last Name"
-                variant="standard"
-                color="secondary"
+              <input
+                style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF5F59" }}
+                placeholder="Last Name"
                 type="text"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
@@ -292,11 +286,9 @@ function Investor() {
               </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={6}>
-              <TextField
-                style={{ width: "100%" }}
-                label="Phone Number"
-                variant="standard"
-                color="secondary"
+              <input
+                style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF5F59" }}
+                placeholder="Phone Number"
                 type="tel"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -311,31 +303,30 @@ function Investor() {
                   width: "100%",
                 }}
               >
-                <InputLabel color="secondary">Country</InputLabel>
-                <Select
-                  color="secondary"
-                  labelId="demo-simple-select-label"
+                {/* <InputLabel color="secondary">Country</InputLabel> */}
+                <select
+                  placeholder="Country"
+                  style={{padding:"15px 10px", border:"1px solid #FF5F59"}}
                   value={country}
                   onChange={(e) => setCountry(e.target.value)}
                 >
-                  <MenuItem value="Nigeria">Nigeria</MenuItem>
-                  <MenuItem value="South Africa">South Africa</MenuItem>
-                  <MenuItem value="U.S.A">U.S.A</MenuItem>
-                  <MenuItem value="United Kingdom">United Kingdom</MenuItem>
-                  <MenuItem value="Canada">Canada</MenuItem>
-                  <MenuItem value="Finland">Finland</MenuItem>
-                </Select>
+                  <option value="" disabled>Select Country</option>
+                  <option value="Nigeria">Nigeria</option>
+                  <option value="South Africa">South Africa</option>
+                  <option value="U.S.A">U.S.A</option>
+                  <option value="United Kingdom">United Kingdom</option>
+                  <option value="Canada">Canada</option>
+                  <option value="Finland">Finland</option>
+                </select>
               </FormControl>
               <Typography variant="body1" style={{ color: "red" }}>
                 {error4}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-              <TextField
-                style={{ width: "100%" }}
-                label="Email Address"
-                variant="standard"
-                color="secondary"
+              <input
+                style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF5F59" }}
+                placeholder="Email Address"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -350,16 +341,15 @@ function Investor() {
                   width: "100%",
                 }}
               >
-                <InputLabel color="secondary">Gender</InputLabel>
-                <Select
-                  color="secondary"
-                  labelId="demo-simple-select-label"
+                <select
+                  style={{padding:"15px 10px", border:"1px solid #FF5F59"}}
                   value={gender}
                   onChange={(e) => setGender(e.target.value)}
                 >
-                  <MenuItem value="male">Male</MenuItem>
-                  <MenuItem value="female">Female</MenuItem>
-                </Select>
+                  <option value="" disabled>Select Gender</option>
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
               </FormControl>
               <Typography variant="body1" style={{ color: "red" }}>
                 {error6}
@@ -371,29 +361,26 @@ function Investor() {
                   width: "100%",
                 }}
               >
-                <InputLabel color="secondary">
-                  Where would you like to invest in?
-                </InputLabel>
-                <Select
-                  color="secondary"
-                  labelId="demo-simple-select-label"
+                <select
                   value={invest}
                   onChange={(e) => setInvest(e.target.value)}
+                  style={{padding:"15px 10px", border:"1px solid #FF5F59"}}
                 >
-                  <MenuItem value="FinTech">FinTech</MenuItem>
-                  <MenuItem value="HealthTech">HealthTech</MenuItem>
-                  <MenuItem value="Block chain">Block chain</MenuItem>
-                  <MenuItem value="EdTech">EdTech</MenuItem>
-                  <MenuItem value="AgroTech">AgroTech</MenuItem>
-                  <MenuItem value="InsurTech">InsurTech</MenuItem>
-                  <MenuItem value="BioTech">BioTech</MenuItem>
-                  <MenuItem value="FoodTech">FoodTech</MenuItem>
-                  <MenuItem value="Cryptocurrency">Cryptocurrency</MenuItem>
-                  <MenuItem value="E-commerce">E-commerce</MenuItem>
-                  <MenuItem value="Entertainment">Entertainment</MenuItem>
-                  <MenuItem value="Logistics">Logistics</MenuItem>
-                  <MenuItem value="Cybersecurity">Cybersecurity</MenuItem>
-                </Select>
+                  <option value="" disabled>Where would you like to invest in?</option>
+                  <option value="FinTech">FinTech</option>
+                  <option value="HealthTech">HealthTech</option>
+                  <option value="Block chain">Block chain</option>
+                  <option value="EdTech">EdTech</option>
+                  <option value="AgroTech">AgroTech</option>
+                  <option value="InsurTech">InsurTech</option>
+                  <option value="BioTech">BioTech</option>
+                  <option value="FoodTech">FoodTech</option>
+                  <option value="Cryptocurrency">Cryptocurrency</option>
+                  <option value="E-commerce">E-commerce</option>
+                  <option value="Entertainment">Entertainment</option>
+                  <option value="Logistics">Logistics</option>
+                  <option value="Cybersecurity">Cybersecurity</option>
+                </select>
               </FormControl>
               <Typography variant="body1" style={{ color: "red" }}>
                 {error7}
@@ -405,38 +392,40 @@ function Investor() {
                   width: "100%",
                 }}
               >
-                <InputLabel color="secondary">
+                {/* <InputLabel color="secondary">
                   What's your preferred stage of investing?
-                </InputLabel>
-                <Select
-                  color="secondary"
-                  labelId="demo-simple-select-label"
+                </InputLabel> */}
+                <select
+                  style={{padding:"15px 10px", border:"1px solid #FF5F59"}}
                   value={prefferedStage}
                   onChange={(e) => setPrefferedStage(e.target.value)}
                 >
-                  <MenuItem value="Idea Stage">Idea Stage</MenuItem>
-                  <MenuItem value="M.V.P">M.V.P</MenuItem>
-                  <MenuItem value="Seed Stage">Seed Stage</MenuItem>
-                  <MenuItem value="Series A">Series A</MenuItem>
-                </Select>
+                  <option value="" disabled>What's your preferred stage of investing?</option>
+                  <option value="Idea Stage">Idea Stage</option>
+                  <option value="M.V.P">M.V.P</option>
+                  <option value="Seed Stage">Seed Stage</option>
+                  <option value="Series A">Series A</option>
+                </select>
               </FormControl>
               <Typography variant="body1" style={{ color: "red" }}>
                 {error8}
               </Typography>
             </Grid>
             <Grid item xs={12} sm={12} md={12}>
-              <Button
+              <button
                 variant="contained"
                 style={{
                   color: "#fff",
                   backgroundColor: "#FF5F59",
-                  padding: "10px 25px",
+                  padding: "8px 20px",
+                  border:"none",
+                  borderRadius:"5px"
                 }}
                 onClick={next}
                 disabled={disabled}
               >
                 {apply}
-              </Button>
+              </button>
             </Grid>
           </Grid>
         </Grid>
@@ -589,13 +578,31 @@ function Investor() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Accordion 1</Typography>
+            <Typography className={classes.heading}>
+              1. Why should I invest in startups recommended by techlauncher.io?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              The question is why shouldn’t you?
+              <br />
+              - We have a unique validation process for every tech startup
+              that signs up with techlauncher.io.
+              <br />
+              - We dedicate our time and resources to do a proper business
+              development for each tech startup to ensure that their business model works.
+              <br />
+              - We have established partnership with a reputable law firm to
+              ensure that all loopholes are covered, and respective tech startups
+              are legally protected, thereby giving investors from our pool the
+              needed security and peace of mind for their investments.
+              <br />
+              - We link them with our pool of mentors for professional and result-oriented mentorship to
+              boast their chances of surviving in the market.
+              <br />
+              Fact is, we do the due diligence and make sure that the startup is
+              worthy of investment. We get ourselves involved in every
+              tech-startup as well.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -605,13 +612,14 @@ function Investor() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Accordion 2</Typography>
+            <Typography className={classes.heading}>
+              2. If I get involved what next?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              We will establish relationship with you and feed you with details
+              about the startups that you will be willing to invest in.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -621,13 +629,17 @@ function Investor() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Accordion 3</Typography>
+            <Typography className={classes.heading}>
+              3. What is Techlauncher’s investor terms?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              The startup at hand will determine the investor terms. They will
+              present the terms to interested investors, though Techlauncher
+              will be fully involved in the conversation. However, we will stay
+              true to our resolve to fight for what’s best for the tech-startup
+              and the investor as well.
             </Typography>
           </AccordionDetails>
         </Accordion>
@@ -637,13 +649,63 @@ function Investor() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Accordion 4</Typography>
+            <Typography className={classes.heading}>
+              4. Asides investing, are there other obligations allocated to
+              Investors?
+            </Typography>
           </AccordionSummary>
           <AccordionDetails>
             <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
+              - Investors can also opt to mentor tech-startups.
+              <br />
+              - Investors will be fully informed about Techlauncher events and
+              can decide to fully participate (by speaking or being part of
+              panels).
+              <br />- Investors can also be part of any of Techlauncher’s four
+              (4) cardinal programs:
+              <ul>
+                <li>Campus- To- The - World (CTTW) Program</li>
+                <li>Pitch- To – Launch (PTL) Program</li>
+                <li>Rebuild To Scale (RTS) Program</li>
+                <li>Idea – To – Product (ITP) Program</li>
+              </ul>
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion style={{ marginBottom: "30px" }}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>
+              5. How does investors keep track of the startups they invested in
+              and their investment?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              Simple! Techlauncher provides individual investors with regular
+              updates on tech-startups. We ensure that investors are not at any
+              point starved of updates about the startup(s) they are linked to.
+            </Typography>
+          </AccordionDetails>
+        </Accordion>
+        <Accordion style={{ marginBottom: "30px" }}>
+          <AccordionSummary
+            expandIcon={<ExpandMoreIcon />}
+            aria-controls="panel1a-content"
+            id="panel1a-header"
+          >
+            <Typography className={classes.heading}>
+              6. What’s Techlauncher’s revenue model?
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <Typography>
+              We do our best to raise and support startups that are investment
+              worthy, can generate revenue or that can be sold to other
+              companies.
             </Typography>
           </AccordionDetails>
         </Accordion>

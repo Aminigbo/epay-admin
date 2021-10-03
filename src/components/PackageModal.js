@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import "./check.css"
 import {
   FormControl,
   FormGroup,
-  Checkbox,
   FormControlLabel,
   Typography,
 } from "@material-ui/core";
@@ -79,22 +79,29 @@ const PackageModal = ({
               <FormControlLabel
                 value="end"
                 control={
-                  <Checkbox
+                  <input
+                    type="checkbox"
+                    id="business"
+                    className="checked"
                     checked={businessCheck}
-                    style={{ color: "#FF6256" }}
                     onChange={resetBusinessCheck}
+                    style={{ color: "#FF6256" }}
                   />
                 }
                 label="Business Development"
                 labelPlacement="end"
               />
+
+              {/* <label for="business">Business Development</label> */}
               <FormControlLabel
                 value="end"
                 control={
-                  <Checkbox
+                  <input
+                    type="checkbox"
+                    className="checked"
                     checked={legalCheck}
                     onChange={resetLegalCheck}
-                    style={{ color: "#FF6256" }}
+                    style={{ margin:"15px 10px" }}
                   />
                 }
                 label="Legal Documentaton"
@@ -103,7 +110,9 @@ const PackageModal = ({
               <FormControlLabel
                 value="end"
                 control={
-                  <Checkbox
+                  <input
+                    type="checkbox"
+                    className="checked"
                     checked={fundCheck}
                     onChange={resetFundCheck}
                     style={{ color: "#FF6256" }}

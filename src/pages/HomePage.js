@@ -53,9 +53,8 @@ function HomePage() {
       height: isActive ? "auto" : "90vh",
       backgroundImage: `url(${images.landingImg})`,
       backgroundSize: "cover",
-      backgroundPosition: "center",
+      // backgroundPosition: "top",
       backgroundRepeat: "no-repeat",
-      padding: isActive ? "70px 0" : null,
     },
   });
 
@@ -173,51 +172,55 @@ function HomePage() {
         </Grid>
       </Grid>
       <div className={classes.banner}>
-        <Container>
-          <Grid container>
-            <Grid
-              item
-              container
-              xs={12}
-              md={6}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                height: isActive ? "auto" : "90vh",
-              }}
-            >
-              <div style={{ height: "auto" }}>
-                <Typography variant="h3" style={{ color: "#fff" }}>
-                  Business Development and Funding For Tech Start-Ups
-                </Typography>
-                <Typography
-                  variant="body1"
-                  style={{
-                    color: "#fff",
-                    paddingTop: "30px",
-                    paddingBottom: 30,
-                  }}
-                >
-                  We can imagine how much you want to see your tech product
-                  succeed. That’s why we are coming through for you.
-                </Typography>
-                <Link to="/apply" style={{ textDecoration: "none" }}>
-                  <Button
-                    variant="contained"
+        <div
+          style={{ width: "100%", height: "100%", backgroundColor: "#00000094", padding: isActive ? "70px 0" : null, }}
+        >
+          <Container>
+            <Grid container>
+              <Grid
+                item
+                container
+                xs={12}
+                md={6}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  height: isActive ? "auto" : "90vh",
+                }}
+              >
+                <div style={{ height: "auto" }}>
+                  <Typography variant="h3" style={{ color: "#fff" }}>
+                    Business Development and Funding For Tech Start-Ups
+                  </Typography>
+                  <Typography
+                    variant="body1"
                     style={{
-                      display: "flex",
                       color: "#fff",
-                      backgroundColor: "#FF5B5E",
+                      paddingTop: "30px",
+                      paddingBottom: 30,
                     }}
                   >
-                    get started{" "}
-                    <ArrowRightAltIcon style={{ paddingLeft: "10px" }} />
-                  </Button>
-                </Link>
-              </div>
+                    We can imagine how much you want to see your tech product
+                    succeed. That’s why we are coming through for you.
+                  </Typography>
+                  <Link to="/apply" style={{ textDecoration: "none" }}>
+                    <Button
+                      variant="contained"
+                      style={{
+                        display: "flex",
+                        color: "#fff",
+                        backgroundColor: "#FF5B5E",
+                      }}
+                    >
+                      get started{" "}
+                      <ArrowRightAltIcon style={{ paddingLeft: "10px" }} />
+                    </Button>
+                  </Link>
+                </div>
+              </Grid>
             </Grid>
-          </Grid>
-        </Container>
+          </Container>
+        </div>
       </div>
       <Container style={{ marginTop: "70px" }}>
         <Grid container gutter="false" spacing={4}>
@@ -272,7 +275,7 @@ function HomePage() {
                 Techlauncher is here to bring your dream to reality in 4
                 interesting steps.
               </Typography>
-              <Link to="/offer" style={{textDecoration:"none"}}>
+              <Link to="/offer" style={{ textDecoration: "none" }}>
                 <Button
                   variant="contained"
                   style={{
@@ -400,9 +403,9 @@ function HomePage() {
                 Watch Some Video
               </Typography>
               <Typography variant="body1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit Vitae
-                senectus lacinia lorem aliquet quis ante cras turpis Vitae
-                senectus lacinia lorem aliquet quis ante cras turpis.
+                Let's walk you through what we do at Techlauncher.io.
+                <br />
+                Just take a look.
               </Typography>
             </Grid>
           </Grid>

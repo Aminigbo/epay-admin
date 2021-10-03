@@ -4,11 +4,7 @@ import {
   Typography,
   Grid,
   Paper,
-  TextField,
   FormControl,
-  Select,
-  MenuItem,
-  InputLabel,
   Button,
   makeStyles,
   IconButton,
@@ -197,11 +193,13 @@ function ProductForm({
                 }}
               >
                 <div style={{ width: "45%" }}>
-                  <TextField
-                    style={{ width: "100%" }}
-                    label="Product Name"
-                    variant="standard"
-                    color="secondary"
+                  <input
+                    style={{
+                      width: "100%",
+                      padding: "15px 10px",
+                      border: "1px solid #FF5F59",
+                    }}
+                    placeholder="Product Name"
                     value={productName}
                     onChange={(e) => setProductName(e.target.value)}
                   />
@@ -215,17 +213,22 @@ function ProductForm({
                       width: "100%",
                     }}
                   >
-                    <InputLabel color="secondary">Product Type</InputLabel>
-                    <Select
-                      color="secondary"
-                      labelId="demo-simple-select-label"
+                    {/* <InputLabel color="secondary">Product Type</InputLabel> */}
+                    <select
+                      style={{
+                        width: "100%",
+                        padding: "15px 10px",
+                        border: "1px solid #FF5F59",
+                      }}
                       value={productType}
                       onChange={(e) => setProductType(e.target.value)}
                     >
-                      <MenuItem value="website">Website</MenuItem>
-                      <MenuItem value="mobile app">Mobile apps</MenuItem>
-                      <MenuItem value="digital market">Digital marketing</MenuItem>
-                    </Select>
+                      <option value="" disabled>Select a Product Type</option>
+                      <option value="website">Website</option>
+                      <option value="mobile app">Mobile apps</option>
+                      <option value="digital marketing">Digital marketing</option>
+                      <option value="IoT">IoT</option>
+                    </select>
                   </FormControl>
                   <Typography variant="body1" style={{ color: "red" }}>
                     {error2}
@@ -245,15 +248,31 @@ function ProductForm({
                       width: "100%",
                     }}
                   >
-                    <InputLabel color="secondary">Primary Industry</InputLabel>
-                    <Select
-                      color="secondary"
-                      labelId="demo-simple-select-label"
+                    {/* <InputLabel color="secondary">Primary Industry</InputLabel> */}
+                    <select
+                      style={{
+                        width: "100%",
+                        padding: "15px 10px",
+                        border: "1px solid #FF5F59",
+                      }}
                       value={primaryIndustry}
                       onChange={(e) => setPrimaryIndustry(e.target.value)}
                     >
-                      <MenuItem value="Nigeria">Nigeria</MenuItem>
-                    </Select>
+                      <option value="" disabled>Select Primary Industry</option>
+                      <option value="FinTech">FinTech</option>
+                      <option value="HealthTech">HealthTech</option>
+                      <option value="Block chain">Block chain</option>
+                      <option value="EdTech">EdTech</option>
+                      <option value="AgroTech">AgroTech</option>
+                      <option value="InsurTech">InsurTech</option>
+                      <option value="BioTech">BioTech</option>
+                      <option value="FoodTech">FoodTech</option>
+                      <option value="Cryptocurrency">Cryptocurrency</option>
+                      <option value="E-commerce">E-commerce</option>
+                      <option value="Entertainment">Entertainment</option>
+                      <option value="Logistics">Logistics</option>
+                      <option value="Cybersecurity">Cybersecurity</option>
+                    </select>
                   </FormControl>
                   <Typography variant="body1" style={{ color: "red" }}>
                     {error3}
@@ -265,42 +284,48 @@ function ProductForm({
                       width: "100%",
                     }}
                   >
-                    <InputLabel color="secondary">Development Stage</InputLabel>
-                    <Select
-                      color="secondary"
-                      labelId="demo-simple-select-label"
+                    {/* <InputLabel color="secondary">Development Stage</InputLabel> */}
+                    <select
+                      style={{
+                        width: "100%",
+                        padding: "15px 10px",
+                        border: "1px solid #FF5F59",
+                      }}
                       value={developmentStage}
                       onChange={(e) => setDevelopmentStage(e.target.value)}
                     >
-                      <MenuItem value="Idea stage">Idea stage</MenuItem>
-                      <MenuItem value="MVP">MVP</MenuItem>
-                      <MenuItem value="Finished product">
+                      <option value="" disabled>Select a Development Stage</option>
+                      <option value="Idea stage">Idea stage</option>
+                      <option value="MVP">MVP</option>
+                      <option value="Finished product">
                         Finished product
-                      </MenuItem>
-                      <MenuItem value="Launched">Launched</MenuItem>
-                      <MenuItem value="Already have users">
+                      </option>
+                      <option value="Launched">Launched</option>
+                      <option value="Already have users">
                         Already have users
-                      </MenuItem>
-                      <MenuItem value="Already generating money">
+                      </option>
+                      <option value="Already generating money">
                         Already generating money
-                      </MenuItem>
-                    </Select>
+                      </option>
+                    </select>
                   </FormControl>
                   <Typography variant="body1" style={{ color: "red" }}>
                     {error4}
                   </Typography>
                 </div>
               </div>
-              <TextField
-                id="outlined-multiline-static"
-                label="Product Description"
+              <textarea
                 multiline
-                rows={6}
+                rows={7}
                 value={productDes}
                 onChange={(e) => setProductDes(e.target.value)}
-                variant="filled"
-                color="secondary"
-                style={{ width: "100%" }}
+                style={{
+                  width: "100%",
+                  padding: "15px 10px",
+                  border: "1px solid #FF5F59",
+                  resize:"none"
+                }}
+                placeholder="Enter Product Description"
               />
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Typography

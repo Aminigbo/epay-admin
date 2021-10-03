@@ -5,8 +5,6 @@ import {
   Typography,
   useMediaQuery,
   Paper,
-  TextField,
-  Button,
   CircularProgress,
 } from "@material-ui/core";
 import React, { useState } from "react";
@@ -31,7 +29,7 @@ function Contact() {
   const [error5, setError5] = useState("");
   const [disabled, setDisabled] = useState(false);
 
-  const [btn, setBtn] = useState("contact");
+  const [btn, setBtn] = useState("Contact");
 
   const isActive = useMediaQuery("(max-width:959px)");
 
@@ -267,9 +265,9 @@ function Contact() {
         </Grid>
         <Grid container spacing={6} style={{ marginTop: 30 }}>
           <Grid item xs={12} sm={12} md={6}>
-            <TextField
-              style={{ width: "100%" }}
-              label="Name"
+            <input
+              style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF6256"}}
+              placeholder="Enter your name"
               variant="standard"
               color="secondary"
               type="text"
@@ -281,11 +279,9 @@ function Contact() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <TextField
-              style={{ width: "100%" }}
-              label="Subject"
-              variant="standard"
-              color="secondary"
+            <input
+              style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF6256"}}
+              placeholder="Subject"
               type="text"
               value={subject}
               onChange={(e) => setSubject(e.target.value)}
@@ -295,11 +291,9 @@ function Contact() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <TextField
-              style={{ width: "100%" }}
-              label="Email Address"
-              variant="standard"
-              color="secondary"
+            <input
+              style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF6256"}}
+              placeholder="Email Address"
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -309,9 +303,9 @@ function Contact() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={6}>
-            <TextField
-              style={{ width: "100%" }}
-              label="Phone Number"
+            <input
+              style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF6256"}}
+              placeholder="Enter Your Phone Number"
               variant="standard"
               color="secondary"
               type="tel"
@@ -323,11 +317,9 @@ function Contact() {
             </Typography>
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
-            <TextField
-              style={{ width: "100%" }}
-              label="Message"
-              variant="filled"
-              color="secondary"
+            <textarea
+              style={{ width: "100%", padding:"15px 10px", border:"1px solid #FF6256", resize:"none"}}
+              placeholder="Message"
               type="text"
               multiline
               rows={9}
@@ -344,25 +336,26 @@ function Contact() {
               <Typography variant="body1" style={{ color: "red" }}>
                 {error5}
               </Typography>
-              <Typography variant="body2" style={{ color: "#ccc" }}>
+              <Typography variant="body2" style={{ color: "grey" }}>
                 (200 letters)
               </Typography>
             </div>
           </Grid>
           <Grid item xs={12} sm={12} md={12}>
-            <Button
-              variant="contained"
+            <button
               style={{
                 float: "left",
                 color: "#fff",
                 padding: "10px 25px",
                 backgroundColor: "#FF5F59",
+                border:"none",
+                borderRadius:"5px"
               }}
               onClick={validate}
               disabled={disabled}
             >
               {btn}
-            </Button>
+            </button>
           </Grid>
         </Grid>
       </Container>
