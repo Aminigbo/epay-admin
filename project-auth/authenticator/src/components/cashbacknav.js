@@ -130,7 +130,7 @@ function Home({ appState, login_suc }) {
                   />
                   <div>
                     <b style={{ fontSize: "20px", color: "#0a3d62" }}>
-                      SMART AUTH
+                      SMART AUTH.
                     </b>{" "}
                     <br /> <br />
                     <br />
