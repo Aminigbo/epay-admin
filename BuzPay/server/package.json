@@ -1,0 +1,36 @@
+{
+  "name": "reelwood",
+  "version": "1.0.0",
+  "description": "this is the backend for reelwood application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "reelwood",
+    "backend",
+    "api",
+    "ticket",
+    "event-api"
+  ],
+  "author": "AMinigbo",
+  "license": "ISC",
+  "dependencies": {
+    "@sendgrid/mail": "^7.4.7",
+    "@supabase/supabase-js": "^1.13.1",
+    "africastalking": "^0.5.3",
+    "axios": "^0.21.1",
+    "body-parser": "^1.19.0",
+    "consola": "^2.15.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "nodemon": "^2.0.7",
+    "passport": "^0.5.0",
+    "request": "^2.88.2",
+    "socketio": "^1.0.0"
+  }
+}
