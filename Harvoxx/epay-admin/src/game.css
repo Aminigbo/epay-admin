@@ -1,0 +1,25 @@
+.game {
+  position: relative;
+  width: 400px;
+
+  margin: auto;
+  background-color: white;
+
+  margin-top: 40px;
+  display: flex;
+  flex-flow: row wrap;
+  margin-bottom: 30px;
+  background-image: url("./grass4.png");
+  /* background-position: cover; */
+}
+
+.game .box {
+  width: 40px;
+  height: 40px;
+  border: none;
+}
+
+.man {
+  width: 40px;
+  height: auto;
+}
