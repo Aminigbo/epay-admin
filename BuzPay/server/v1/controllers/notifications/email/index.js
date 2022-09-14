@@ -11,7 +11,7 @@ async function otpEmail(req) {
     // from: 'ogapredictor@gmail.com', // Change to your verified sender
     to: payload.email,
     from: {
-      name: "Buzz Pay",
+      name: "BuzPay",
       email: "ogapredictor@gmail.com",
     },
     subject: `One time password`,

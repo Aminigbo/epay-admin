@@ -1,5 +1,5 @@
 // batabase connection
-const { OTP_key, OTP_username, secret } = require("../../config/"); 
+const { OTP_key, OTP_username, secret } = require("../../config/");
 const jwt = require("jsonwebtoken");
 
 // Set your app credentials
@@ -29,6 +29,22 @@ const token = (event, jwt, secrete) => {
     secrete
   );
 };
+
+
+// @============  VALIDATE EMAIL
+const validateEmail = (email) => {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+// @============= VALIDATE EMAIL
+const validatePhoneNumber = (input_str)=>{
+  var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+  return re.test(input_str);
+}
+
+
 
 const isNum = (number) => {
   let num = isNaN(parseFloat(number));
@@ -91,12 +107,12 @@ const sendOTP = (sendTo, message) => {
   };
   return sms
     .send(options)
-     .then((response) => {
-       console.log(response)
+    .then((response) => {
+      console.log(response)
       return response;
     })
-     .catch((error) => {
-       console.log(error)
+    .catch((error) => {
+      console.log(error)
       return error;
     });
 };
@@ -110,4 +126,6 @@ module.exports = {
   roles,
   token,
   validate__pwd,
+  validateEmail,
+  validatePhoneNumber,
 };

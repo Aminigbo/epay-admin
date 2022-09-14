@@ -45,8 +45,9 @@ app.use((req,res,next)=>{
 /**
  * @DESC Route middleware
  */
+
 // In-app
-app.use("/api/v1", require("./v1/routes/")) 
+app.use("/api/v1", require("./v1/routes")) 
 
 // third party
 app.use("/buzz-api/v1", require("./v1/third-party/routes/")) 
